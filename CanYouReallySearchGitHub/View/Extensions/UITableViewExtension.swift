@@ -44,6 +44,10 @@ extension UITableView {
         backgroundView = messageLabel
         separatorStyle = .none
     }
+    
+    func setBackgroundEmpty() {
+        setEmptyMessageToBackground("")
+    }
 
     func restoreBackground() {
         backgroundView = nil

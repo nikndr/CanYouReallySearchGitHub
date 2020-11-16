@@ -64,7 +64,11 @@ class RepositoryListViewController: UITableViewController {
                 tableView.setSpinnerToBackground()
                 tableView.addFooterSpinner()
             } else {
-                tableView.setEmptyMessageToBackground("Nothing here!")
+                if viewModel.numberOfRows() == 0 {
+                    tableView.setEmptyMessageToBackground("Nothing here!")
+                } else {
+                    tableView.setBackgroundEmpty()
+                }
                 tableView.clearFooter()
             }
         }
@@ -74,7 +78,11 @@ class RepositoryListViewController: UITableViewController {
 
     func fetchRepositories() {
         guard let searchBarText = searchBarText, searchBarText.trimmingCharacters(in: [" "]).count > 0 else { return }
-        viewModel.fetchRepositories(withRawSearchInput: searchBarText) { [unowned self] in
+        viewModel.fetchRepositories(withRawSearchInput: searchBarText) { [unowned self] error in
+            guard error == nil else {
+                UIAlertController.showDefaultAlert(withTitle: "Oops!", message: "Unable to fetch more data. Please, try again later.", presenter: self)
+                return
+            }
             self.reloadDataAsync()
         }
     }

@@ -24,7 +24,7 @@ class SearchViewModel: NSObject, SearchViewModelType {
 
     // MARK: - Fetching search results
 
-    func fetchRepositories(withRawSearchInput searchInput: String, completion: @escaping () -> Void) {
+    func fetchRepositories(withRawSearchInput searchInput: String, completion: @escaping (String?) -> Void) {
         guard isFetching.value == false else { return }
 
         let searchQuery = format(searchQuery: searchInput)
@@ -37,13 +37,13 @@ class SearchViewModel: NSObject, SearchViewModelType {
         isFetching.value = true
         networkManager.fetchRepositories(query: searchQuery, pageNumber: pageNumber) { [weak self] result in
             guard let self = self else { return }
+            self.isFetching.value = false
             switch result {
             case let .success(repositoriesResponse):
                 self.save(newRepositories: repositoriesResponse.items)
-                self.isFetching.value = false
-                completion()
-            case let .failure(error): // TODO: handle error
-                debugPrint(error.localizedDescription)
+                completion(nil)
+            case let .failure(error):
+                completion(error.localizedDescription)
             }
         }
     }
