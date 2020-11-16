@@ -8,21 +8,21 @@
 import Foundation
 
 protocol EndPointType: URLRequestConvertible {
-    var baseURL: URL { get }
+    var baseURL: URL? { get }
     var method: HTTPMethod { get }
     var path: String { get }
     var task: HTTPTask { get }
 }
 
 extension URLRequestConvertible where Self: EndPointType {
-    var baseURL: URL {
-        guard let url = URL(string: NetworkConstants.baseURL) else {
-            fatalError("Base URL string cannot be converted to URL oject.")
-        }
-        return url
+    var baseURL: URL? {
+        URL(string: NetworkConstants.baseURL)
     }
 
     func asURLRequest() throws -> URLRequest {
+        guard let baseURL = baseURL else {
+            throw NetworkError.urlConstructionFailure
+        }
         var request = URLRequest(url: baseURL.appendingPathComponent(path))
 
         request.httpMethod = method.rawValue

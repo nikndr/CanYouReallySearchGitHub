@@ -20,6 +20,7 @@
 		93096A412561AC3A00378830 /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A402561AC3A00378830 /* RequestConfiguration.swift */; };
 		93135B362562A98A0009F3D9 /* DecoderConfigurationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93135B352562A98A0009F3D9 /* DecoderConfigurationError.swift */; };
 		93135B3B2562AFCC0009F3D9 /* JSONDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93135B3A2562AFCC0009F3D9 /* JSONDecoderExtension.swift */; };
+		9313D32325631C9100549A6C /* EntityNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313D32225631C9100549A6C /* EntityNames.swift */; };
 		9343D37A2562CA7700942F9A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D3792562CA7700942F9A /* CoreDataManager.swift */; };
 		935D4F03255E998900E5BE69 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935D4F02255E998900E5BE69 /* RepositoryListViewController.swift */; };
 		935D4F0D255E9C1F00E5BE69 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935D4F0C255E9C1F00E5BE69 /* RepositoryCell.swift */; };
@@ -64,6 +65,7 @@
 		93096A402561AC3A00378830 /* RequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
 		93135B352562A98A0009F3D9 /* DecoderConfigurationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderConfigurationError.swift; sourceTree = "<group>"; };
 		93135B3A2562AFCC0009F3D9 /* JSONDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtension.swift; sourceTree = "<group>"; };
+		9313D32225631C9100549A6C /* EntityNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityNames.swift; sourceTree = "<group>"; };
 		9343D3792562CA7700942F9A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		935D4F02255E998900E5BE69 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		935D4F0C255E9C1F00E5BE69 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				93FFE0D2256288CD00BB3221 /* Entities */,
 				9343D3792562CA7700942F9A /* CoreDataManager.swift */,
+				9313D32225631C9100549A6C /* EntityNames.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				93C7380A255D65CB00DD064E /* Constants.swift in Sources */,
 				93C73892255DBC7300DD064E /* URLSession.swift in Sources */,
 				93096A2C25613B0200378830 /* Observable.swift in Sources */,
+				9313D32325631C9100549A6C /* EntityNames.swift in Sources */,
 				93C73886255DB2C500DD064E /* SearchEndPoint.swift in Sources */,
 				93C737C1255C84B400DD064E /* AppDelegate.swift in Sources */,
 				93096A232561080F00378830 /* RepositoryCellViewModel.swift in Sources */,

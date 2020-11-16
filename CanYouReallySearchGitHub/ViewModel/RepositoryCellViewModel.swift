@@ -16,15 +16,15 @@ class RepositoryCellViewModel: RepositoryCellViewModelType {
     // MARK: - Computed properties
 
     var userName: String {
-        repository.login!
+        repository.login ?? "No data"
     }
 
     var repositoryName: String {
-        repository.name!
+        repository.name ?? "No data"
     }
 
     var repositoryDescription: String {
-        repository.repositoryDescription!
+        repository.repositoryDescription ?? "No data"
     }
 
     var starsCount: String {
@@ -36,11 +36,11 @@ class RepositoryCellViewModel: RepositoryCellViewModelType {
     }
 
     var urlToRepositoryPage: String {
-        repository.htmlURL!
+        repository.htmlURL ?? "No data"
     }
 
     var avatarURL: String {
-        repository.avatarURL!
+        repository.avatarURL ?? "No data"
     }
 
     var isVisited: Observable<Bool> {

@@ -12,6 +12,6 @@ protocol SearchViewModelType {
     var isFetching: Observable<Bool> { get }
     func numberOfRows() -> Int
     func cellViewModel(forRowAt indexPath: IndexPath) -> RepositoryCellViewModelType?
-    func fetchLocalData(completion: @escaping (String?) -> Void)
-    func fetchRepositories(withRawSearchInput searchInput: String, completion: @escaping (String?) -> Void)
+    func fetchLocalData(completion: @escaping (FetchError?) -> Void)
+    func fetchRepositories(withRawSearchInput searchInput: String, completion: @escaping (FetchError?) -> Void)
 }

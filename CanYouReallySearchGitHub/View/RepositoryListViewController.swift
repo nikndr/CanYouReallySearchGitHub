@@ -32,7 +32,11 @@ class RepositoryListViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchLocalData { [unowned self] _ in
+        viewModel.fetchLocalData { [unowned self] error in
+            if let error = error {
+                UIAlertController.showDefaultAlert(withTitle: "Oops!", message: error.localizedDescription, presenter: self)
+                return 
+            }
             self.reloadDataAsync()
         }
     }
@@ -86,8 +90,8 @@ class RepositoryListViewController: UITableViewController {
     func fetchRepositories() {
         guard let searchBarText = searchBarText, searchBarText.trimmingCharacters(in: [" "]).count > 0 else { return }
         viewModel.fetchRepositories(withRawSearchInput: searchBarText) { [unowned self] error in
-            guard error == nil else {
-                UIAlertController.showDefaultAlert(withTitle: "Oops!", message: "Unable to fetch more data. Please, try again later.", presenter: self)
+            if let error = error {
+                UIAlertController.showDefaultAlert(withTitle: "Oops!", message: error.localizedDescription, presenter: self)
                 return
             }
             self.reloadDataAsync()

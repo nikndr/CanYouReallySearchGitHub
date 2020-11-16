@@ -12,11 +12,8 @@ struct NetworkConstants {
 }
 
 enum HTTPHeaderField: String {
-    case auth = "Authorization"
     case contentType = "Content-Type"
     case acceptType = "Accept"
-    case acceptEncoding = "Accept-Encoding"
-    case clientID = "Client-ID"
 }
 
 enum HeaderTypes: String {

@@ -10,7 +10,7 @@ import UIKit
 class RepositoryCell: UITableViewCell {
     // MARK: - Outlets
 
-    @IBOutlet var userAvatarImage: UIImageView! // TODO: add spinner image before avatar is loaded
+    @IBOutlet var userAvatarImage: UIImageView!
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var repositoryNameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!

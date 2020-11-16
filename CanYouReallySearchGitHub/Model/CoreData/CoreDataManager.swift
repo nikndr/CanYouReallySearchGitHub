@@ -44,14 +44,14 @@ final class CoreDataManager: NSObject {
         try? viewContext?.save()
     }
 
-    func fetchRepositories(completion: @escaping (Result<[Repository], CoreDataManagerError>) -> Void) { // TODO: Error type
+    func fetchRepositories(completion: @escaping (Result<[Repository], CoreDataManagerError>) -> Void) {
         guard let context = viewContext else {
             completion(.failure(.contextUnavailable))
             return
         }
 
-        let fetchRequest = NSFetchRequest<Repository>(entityName: "Repository")
-        let sortDescriptor = NSSortDescriptor(key: "stargazersCount", ascending: false)
+        let fetchRequest = NSFetchRequest<Repository>(entityName: EntityNames.repository.rawValue)
+        let sortDescriptor = NSSortDescriptor(key: PropertyNames.stargazersCount.rawValue, ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let repositories = try context.fetch(fetchRequest)
@@ -78,7 +78,7 @@ final class CoreDataManager: NSObject {
         guard let context = viewContext else {
             throw CoreDataManagerError.contextUnavailable
         }
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Repository")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.repository.rawValue)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
