@@ -1,5 +1,5 @@
 //
-//  ApiResponse.swift
+//  User.swift
 //  CanYouReallySearchGitHub
 //
 //  Created by Nikandr Marhal on 13.11.2020.
@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct SearchEndPointApiResponseData: Decodable {
-    let items: [RepositoryRemote]
+struct UserRemote: Decodable {
+    let login: String
+    let avatarURL: String
     
     enum CodingKeys: String, CodingKey {
-        case items
+        case login
+        case avatarURL = "avatar_url"
     }
 }

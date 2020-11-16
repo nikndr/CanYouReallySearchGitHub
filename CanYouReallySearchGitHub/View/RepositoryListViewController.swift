@@ -30,6 +30,13 @@ class RepositoryListViewController: UITableViewController {
 
     // MARK: - Lifecycle
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchLocalData { [unowned self] _ in
+            self.reloadDataAsync()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -59,7 +66,7 @@ class RepositoryListViewController: UITableViewController {
     // MARK: - Data binding
 
     func bindData() {
-        viewModel.isFetching.bind { [unowned self] isDataFetching in
+        viewModel.isFetching.subscribe { [unowned self] isDataFetching in
             if isDataFetching == true {
                 tableView.setSpinnerToBackground()
                 tableView.addFooterSpinner()

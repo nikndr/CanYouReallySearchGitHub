@@ -10,24 +10,25 @@ import Foundation
 class RepositoryCellViewModel: RepositoryCellViewModelType {
     // MARK: - Stored properties
 
-    private var repository: RepositoryData
+    private var repository: Repository
+    private var coreDataManager: CoreDataManager
 
     // MARK: - Computed properties
 
     var userName: String {
-        repository.owner.login
+        repository.login!
     }
 
     var repositoryName: String {
-        repository.name
+        repository.name!
     }
 
     var repositoryDescription: String {
-        (repository.repositoryDescription) ?? ""
+        repository.repositoryDescription!
     }
 
     var starsCount: String {
-        "\(repository.stargazersCount ?? 0)"
+        "\(repository.stargazersCount)"
     }
 
     var programmingLanguage: String {
@@ -35,35 +36,29 @@ class RepositoryCellViewModel: RepositoryCellViewModelType {
     }
 
     var urlToRepositoryPage: String {
-        repository.htmlURL
+        repository.htmlURL!
     }
 
     var avatarURL: String {
-        repository.owner.avatarURL
+        repository.avatarURL!
     }
 
-    var isVisited: Box<Bool> = Box(false)
+    var isVisited: Observable<Bool> {
+        Observable(repository.isVisited)
+    }
 
     // MARK: - Initialization
 
-    init(repository: RepositoryData) {
+    init(repository: Repository, coreDataManager: CoreDataManager) {
         self.repository = repository
-
-        bindObservers()
-    }
-
-    // MARK: - Data binding
-
-    func bindObservers() {
-        isVisited.bind { [weak self] newValue in
-            guard let self = self else { return }
-            self.repository.isVisited = newValue
-        }
+        self.coreDataManager = coreDataManager
     }
 
     // MARK: - Logic
 
     func setVisited() {
         isVisited.value = true
+        repository.isVisited = true
+        coreDataManager.saveContext()
     }
 }

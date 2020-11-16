@@ -10,7 +10,7 @@ import Foundation
 typealias JSONValue = Any & Decodable
 
 func request<ResponseType: Decodable>(route: EndPointType,
-                                      decoder: JSONDecoder = JSONDecoder(),
+                                      decoder: JSONDecoder = JSONDecoder().withViewContext(),
                                       completion: @escaping (Result<ResponseType, NetworkError>) -> Void)
 {
     do {
@@ -32,7 +32,7 @@ func request<ResponseType: Decodable>(route: EndPointType,
                 DispatchQueue.main.async {
                     completion(.success(response))
                 }
-            } catch let error {
+            } catch {
                 debugPrint(error)
                 DispatchQueue.main.async {
                     completion(.failure(.serializationFailure))
