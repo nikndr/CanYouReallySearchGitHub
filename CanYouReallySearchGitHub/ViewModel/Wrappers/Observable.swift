@@ -13,19 +13,19 @@ protocol BoxType {
     associatedtype Wrapped
 
     var value: Wrapped { get set }
-    func bind(listener: @escaping WrappedValueChangeListener<Wrapped>)
+    func subscribe(listener: @escaping WrappedValueChangeListener<Wrapped>)
 }
 
-class Box<Wrapped>: BoxType {
+class Observable<Wrapped>: BoxType {
     var value: Wrapped {
         didSet {
             listeners.forEach { $0(value) }
         }
     }
 
-    private var listeners: [WrappedValueChangeListener<Wrapped>] = []
+    private var listeners = [WrappedValueChangeListener<Wrapped>]()
 
-    func bind(listener: @escaping WrappedValueChangeListener<Wrapped>) {
+    func subscribe(listener: @escaping WrappedValueChangeListener<Wrapped>) {
         listeners.append(listener)
         listener(value)
     }

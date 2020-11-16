@@ -15,6 +15,6 @@ protocol RepositoryCellViewModelType: AnyObject {
     var programmingLanguage: String { get }
     var urlToRepositoryPage: String { get }
     var avatarURL: String { get }
-    var isVisited: Box<Bool> { get }
+    var isVisited: Observable<Bool> { get }
     func setVisited()
 }

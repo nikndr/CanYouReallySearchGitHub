@@ -167,10 +167,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvc-tH-bdv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="XAS-Gf-0PJ" customClass="SearchViewModel" customModule="CanYouReallySearchGitHub" customModuleProvider="target">
                     <connections>
+                        <outlet property="coreDataManager" destination="t0z-63-jGi" id="SJF-ns-2VD"/>
                         <outlet property="networkManager" destination="HMB-os-enB" id="vUX-b7-iNg"/>
                     </connections>
                 </customObject>
                 <customObject id="HMB-os-enB" customClass="NetworkManager" customModule="CanYouReallySearchGitHub" customModuleProvider="target"/>
+                <customObject id="t0z-63-jGi" customClass="CoreDataManager" customModule="CanYouReallySearchGitHub" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="-39.508928571428569"/>
         </scene>

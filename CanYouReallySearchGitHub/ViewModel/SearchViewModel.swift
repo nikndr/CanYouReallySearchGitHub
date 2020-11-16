@@ -11,18 +11,34 @@ class SearchViewModel: NSObject, SearchViewModelType {
     // MARK: - Injected properties
 
     @IBOutlet var networkManager: NetworkManager!
+    @IBOutlet var coreDataManager: CoreDataManager!
 
     // MARK: - Stored properties
+
     var canPaginate = true
-    var isFetching: Box<Bool> = Box(false)
-    
-    private var repositories: [RepositoryData] = []
+    var isFetching: Observable<Bool> = Observable(false)
+
+    private var repositories = [Repository]()
     private var viewModels: [RepositoryCellViewModel] = []
     private var pageNumber = 1
-    
+
     private var lastSearchQuery = ""
 
     // MARK: - Fetching search results
+
+    func fetchLocalData(completion: @escaping (String?) -> Void) {
+        coreDataManager.fetchRepositories { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(repositories):
+                self.repositories = repositories
+                self.viewModels.append(contentsOf: repositories.map { RepositoryCellViewModel(repository: $0, coreDataManager: self.coreDataManager) })
+                completion(nil)
+            case let .failure(error):
+                completion(error.localizedDescription)
+            }
+        }
+    }
 
     func fetchRepositories(withRawSearchInput searchInput: String, completion: @escaping (String?) -> Void) {
         guard isFetching.value == false else { return }
@@ -48,33 +64,51 @@ class SearchViewModel: NSObject, SearchViewModelType {
         }
     }
 
+    // MARK: - Working with data
+
+    private func resetSearchResults() {
+        do {
+            try coreDataManager.deleteAllRepositories()
+            updateLocalRepositories()
+            pageNumber = 1
+        } catch {
+            debugPrint(error)
+        }
+    }
+
+    private func save(newRepositories: [RepositoryRemote]) {
+        do {
+            try coreDataManager.saveRepositories(newRepositories)
+            updateLocalRepositories()
+            pageNumber += 1
+            checkIfCanPaginateFurther(newRepositories)
+        } catch {
+            debugPrint(error)
+        }
+    }
+
+    private func updateLocalRepositories() {
+        coreDataManager.fetchRepositories { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(repositories):
+                self.repositories = repositories
+                self.viewModels = repositories.map { RepositoryCellViewModel(repository: $0, coreDataManager: self.coreDataManager) }
+            case let .failure(error):
+                debugPrint(error)
+            }
+        }
+    }
+
+    private func checkIfCanPaginateFurther(_ repositories: [RepositoryRemote]) {
+        canPaginate = repositories.count >= RequestConfiguration.reposPerPage
+    }
+
     private func shouldResetSearchResults(for searchInput: String) -> Bool {
         lastSearchQuery != searchInput
     }
 
-    func resetSearchResults() {
-        repositories = []
-        viewModels = []
-        pageNumber = 1
-    }
-
-    func save(newRepositories: [RepositoryData]) {
-        repositories.append(contentsOf: newRepositories)
-        viewModels.append(contentsOf: newRepositories.map { RepositoryCellViewModel(repository: $0) })
-        pageNumber += 1
-        
-        checkIfCanPaginateFurther(newRepositories)
-    }
-    
-    func checkIfCanPaginateFurther(_ repositories: [RepositoryData]) {
-        if repositories.count < RequestConfiguration.reposPerPage {
-            canPaginate = false
-        } else {
-            canPaginate = true
-        }
-    }
-
-    // MARK: - SearchViewModelType
+    // MARK: - Table View helpers
 
     func numberOfRows() -> Int {
         repositories.count

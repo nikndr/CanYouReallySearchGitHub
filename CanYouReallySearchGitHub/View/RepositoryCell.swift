@@ -38,22 +38,18 @@ class RepositoryCell: UITableViewCell {
     }
 
     func bindObservers(to viewModel: RepositoryCellViewModelType) {
-        viewModel.isVisited.bind { [weak self] isVisited in
+        viewModel.isVisited.subscribe { [weak self] isVisited in
             guard let self = self else { return }
-            if isVisited {
-                self.showVisitedImage()
-            } else {
-                self.hideVisitedImage()
-            }
+            isVisited ? self.showVisitedImage() : self.hideVisitedImage()
         }
     }
 
     func showVisitedImage() {
         UIView.transition(with: seenImage,
-                          duration: 2.0,
+                          duration: 0.4,
                           options: .transitionCrossDissolve,
                           animations: {
-                            self.seenImage.image = UIImage(systemName: "eye")?.withTintColor(.darkGray)
+                              self.seenImage.image = UIImage(systemName: "eye")?.withTintColor(.darkGray)
                           })
     }
 
