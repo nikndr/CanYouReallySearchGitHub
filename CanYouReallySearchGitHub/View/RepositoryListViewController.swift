@@ -11,7 +11,7 @@ import UIKit
 class RepositoryListViewController: UITableViewController {
     // MARK: - Injected properties
 
-    @IBOutlet var viewModel: SearchViewModel!
+    private let viewModel = SearchViewModel()
 
     // MARK: - UI properties
 

@@ -15,28 +15,16 @@ func request<ResponseType: Decodable>(route: EndPointType,
 {
     do {
         let dataTask = try URLSession.shared.dataTask(with: route) { data, _, error in
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    completion(.failure(.invalidResponse))
-                }
-                return
-            }
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(.failure(.invalidResponse))
-                }
+            guard let data = data, error == nil else {
+                completion(.failure(.invalidResponse))
                 return
             }
             do {
                 let response = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(response))
-                }
+                completion(.success(response))
             } catch {
                 debugPrint(error)
-                DispatchQueue.main.async {
-                    completion(.failure(.serializationFailure))
-                }
+                completion(.failure(.serializationFailure))
             }
         }
         dataTask?.resume()

@@ -22,11 +22,6 @@ enum FetchError: Error {
 }
 
 class SearchViewModel: NSObject, SearchViewModelType {
-    // MARK: - Injected properties
-
-    @IBOutlet var networkManager: NetworkManager!
-    @IBOutlet var coreDataManager: CoreDataManager!
-
     // MARK: - Stored properties
 
     var canPaginate = true
@@ -37,6 +32,11 @@ class SearchViewModel: NSObject, SearchViewModelType {
     private var pageNumber = 1
 
     private var lastSearchQuery = ""
+
+    // MARK: - Dependencies
+
+    private let networkManager = NetworkManager()
+    private let coreDataManager = CoreDataManager()
 
     // MARK: - Fetching search results
 
@@ -66,14 +66,16 @@ class SearchViewModel: NSObject, SearchViewModelType {
 
         isFetching.value = true
         networkManager.fetchRepositories(query: searchQuery, pageNumber: pageNumber) { [weak self] result in
-            guard let self = self else { return }
-            self.isFetching.value = false
-            switch result {
-            case let .success(repositoriesResponse):
-                self.save(newRepositories: repositoriesResponse.items)
-                completion(nil)
-            case .failure:
-                completion(.fetchRemoteDataError)
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.isFetching.value = false
+                switch result {
+                case let .success(repositoriesResponse):
+                    self.save(newRepositories: repositoriesResponse.items)
+                    completion(nil)
+                case .failure:
+                    completion(.fetchRemoteDataError)
+                }
             }
         }
     }

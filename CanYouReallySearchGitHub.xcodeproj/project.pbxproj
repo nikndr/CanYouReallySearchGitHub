@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		583E222A285783EF0072832C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583E2229285783EF0072832C /* Request.swift */; };
 		93096A152560051700378830 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A142560051700378830 /* UITableViewExtension.swift */; };
 		93096A18256105A500378830 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A17256105A500378830 /* SearchViewModel.swift */; };
 		93096A1B256105D500378830 /* SearchViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A1A256105D500378830 /* SearchViewModelType.swift */; };
@@ -45,13 +46,26 @@
 		93C7387C255DB03200DD064E /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7387B255DB03200DD064E /* ParameterEncoder.swift */; };
 		93C73882255DB16E00DD064E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C73881255DB16E00DD064E /* NetworkError.swift */; };
 		93C73886255DB2C500DD064E /* SearchEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C73885255DB2C500DD064E /* SearchEndPoint.swift */; };
-		93C7388E255DBA9100DD064E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7388D255DBA9100DD064E /* Request.swift */; };
 		93C73892255DBC7300DD064E /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C73891255DBC7300DD064E /* URLSession.swift */; };
 		93C73896255DE84000DD064E /* UserRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C73895255DE84000DD064E /* UserRemote.swift */; };
 		93FFE0DA2562A74900BB3221 /* CodingUserInfoKeyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FFE0D92562A74900BB3221 /* CodingUserInfoKeyExtension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5859FEE328577A1700C1932A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		583E2229285783EF0072832C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		93096A142560051700378830 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		93096A17256105A500378830 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		93096A1A256105D500378830 /* SearchViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelType.swift; sourceTree = "<group>"; };
@@ -109,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		583E22242857834B0072832C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				93C7388D255DBA9100DD064E /* Request.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		93096A12256004EA00378830 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				93096A402561AC3A00378830 /* RequestConfiguration.swift */,
+				93C73802255D636300DD064E /* Parameters.swift */,
+				93C73809255D65CB00DD064E /* Constants.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -182,6 +206,7 @@
 			children = (
 				93C737BF255C84B400DD064E /* CanYouReallySearchGitHub */,
 				93C737BE255C84B400DD064E /* Products */,
+				583E22242857834B0072832C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,12 +222,12 @@
 			isa = PBXGroup;
 			children = (
 				93C737D1255C84B500DD064E /* Info.plist */,
-				93C737D8255C8A7C00DD064E /* Model */,
+				935D4F05255E9A0700E5BE69 /* Supporting Files */,
 				93C737D9255C8AA200DD064E /* View */,
 				93C737DA255C8AA800DD064E /* ViewModel */,
+				93C737D8255C8A7C00DD064E /* Model */,
 				93C737DB255C8AC000DD064E /* Networking */,
 				93096A3425616EEE00378830 /* Utils */,
-				935D4F05255E9A0700E5BE69 /* Supporting Files */,
 			);
 			path = CanYouReallySearchGitHub;
 			sourceTree = "<group>";
@@ -244,9 +269,8 @@
 		93C737DB255C8AC000DD064E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				93C737FB255D615D00DD064E /* URLRequestConvertible.swift */,
-				93C73802255D636300DD064E /* Parameters.swift */,
-				93C73809255D65CB00DD064E /* Constants.swift */,
+				583E2229285783EF0072832C /* Request.swift */,
+				93C737EB255C9B9C00DD064E /* NetworkManager.swift */,
 				93096A3F2561AC2C00378830 /* Configuration */,
 				93C737FE255D620300DD064E /* Error */,
 				93C737F9255D614E00DD064E /* Service */,
@@ -264,8 +288,7 @@
 				93C73805255D64D800DD064E /* HTTPHeader.swift */,
 				93C737FF255D634100DD064E /* HTTPTask.swift */,
 				93C737E5255C8CDA00DD064E /* EndPointType.swift */,
-				93C737EB255C9B9C00DD064E /* NetworkManager.swift */,
-				93C7388D255DBA9100DD064E /* Request.swift */,
+				93C737FB255D615D00DD064E /* URLRequestConvertible.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -337,6 +360,7 @@
 				93C737B9255C84B400DD064E /* Sources */,
 				93C737BA255C84B400DD064E /* Frameworks */,
 				93C737BB255C84B400DD064E /* Resources */,
+				5859FEE328577A1700C1932A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -362,7 +386,7 @@
 				};
 			};
 			buildConfigurationList = 93C737B8255C84B400DD064E /* Build configuration list for PBXProject "CanYouReallySearchGitHub" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -398,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93135B3B2562AFCC0009F3D9 /* JSONDecoderExtension.swift in Sources */,
+				583E222A285783EF0072832C /* Request.swift in Sources */,
 				9396D657256285FB003E92A8 /* Repository+CoreDataClass.swift in Sources */,
 				93C73803255D636300DD064E /* Parameters.swift in Sources */,
 				93096A3D2561A83000378830 /* UIActivityIndicatorViewExtension.swift in Sources */,
@@ -407,7 +432,6 @@
 				93096A412561AC3A00378830 /* RequestConfiguration.swift in Sources */,
 				93C7387C255DB03200DD064E /* ParameterEncoder.swift in Sources */,
 				93096A152560051700378830 /* UITableViewExtension.swift in Sources */,
-				93C7388E255DBA9100DD064E /* Request.swift in Sources */,
 				935D4F03255E998900E5BE69 /* RepositoryListViewController.swift in Sources */,
 				93096A1E2561061300378830 /* RepositoryCellViewModelType.swift in Sources */,
 				93C737EC255C9B9C00DD064E /* NetworkManager.swift in Sources */,
@@ -582,17 +606,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3RG477JW5L;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = VNU8KKW4GG;
 				INFOPLIST_FILE = CanYouReallySearchGitHub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikndr.CanYouReallySearchGitHub;
+				PRODUCT_BUNDLE_IDENTIFIER = ua.edu.ukma.nmarhal.CanYouReallySearchGitHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "NM UKMA EDU Wildcard";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -601,17 +628,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3RG477JW5L;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = VNU8KKW4GG;
 				INFOPLIST_FILE = CanYouReallySearchGitHub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikndr.CanYouReallySearchGitHub;
+				PRODUCT_BUNDLE_IDENTIFIER = ua.edu.ukma.nmarhal.CanYouReallySearchGitHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "NM UKMA EDU Wildcard";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

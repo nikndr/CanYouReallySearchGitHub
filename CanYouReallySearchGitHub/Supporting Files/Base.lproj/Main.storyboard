@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f1x-9E-QXU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f1x-9E-QXU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryCell" rowHeight="191" id="VUo-GW-rE5" customClass="RepositoryCell" customModule="CanYouReallySearchGitHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="191"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="191"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VUo-GW-rE5" id="wSZ-rH-bLw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="191"/>
@@ -40,7 +41,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user-name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXR-PH-LF1">
-                                                    <rect key="frame" x="38" y="11" width="74" height="18"/>
+                                                    <rect key="frame" x="38" y="11" width="61" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,13 +59,13 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="repository-name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ci-2E-bOe">
-                                            <rect key="frame" x="20" y="59" width="133" height="18"/>
+                                            <rect key="frame" x="20" y="59" width="113" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKb-F2-6O7">
-                                            <rect key="frame" x="20" y="85" width="87.5" height="43"/>
+                                            <rect key="frame" x="20" y="85" width="74" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="43" id="wzZ-lj-t8w"/>
                                             </constraints>
@@ -83,26 +84,26 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stargazers_count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-mV-88L">
-                                                    <rect key="frame" x="28" y="7.5" width="133" height="21"/>
+                                                    <rect key="frame" x="28" y="9.5" width="112.5" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-code-50" translatesAutoresizingMaskIntoConstraints="NO" id="wrI-R7-J7z">
-                                                    <rect key="frame" x="191" y="8" width="20" height="20"/>
+                                                    <rect key="frame" x="170.5" y="8" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="woy-RQ-9Hp"/>
                                                         <constraint firstAttribute="width" constant="20" id="xFG-8z-gRw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sf-ht-8WV">
-                                                    <rect key="frame" x="219" y="7.5" width="70" height="21"/>
+                                                    <rect key="frame" x="198.5" y="9.5" width="59.5" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5g7-Sp-whD">
-                                                    <rect key="frame" x="354" y="7.5" width="20" height="20.5"/>
+                                                    <rect key="frame" x="354" y="6.5" width="20" height="22.5"/>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="4cq-B5-Ouh"/>
@@ -160,19 +161,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Repositories" largeTitleDisplayMode="always" id="yuR-81-Meq"/>
-                    <connections>
-                        <outlet property="viewModel" destination="XAS-Gf-0PJ" id="h07-Pp-Fc5"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvc-tH-bdv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="XAS-Gf-0PJ" customClass="SearchViewModel" customModule="CanYouReallySearchGitHub" customModuleProvider="target">
-                    <connections>
-                        <outlet property="coreDataManager" destination="t0z-63-jGi" id="SJF-ns-2VD"/>
-                        <outlet property="networkManager" destination="HMB-os-enB" id="vUX-b7-iNg"/>
-                    </connections>
-                </customObject>
-                <customObject id="HMB-os-enB" customClass="NetworkManager" customModule="CanYouReallySearchGitHub" customModuleProvider="target"/>
-                <customObject id="t0z-63-jGi" customClass="CoreDataManager" customModule="CanYouReallySearchGitHub" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="-39.508928571428569"/>
         </scene>
