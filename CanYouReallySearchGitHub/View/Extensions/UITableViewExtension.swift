@@ -12,6 +12,10 @@ enum CellIdentifiers: String {
 }
 
 extension UITableView {
+    func register<C: UITableViewCell>(cell: C.Type, for reuseIdentifier: CellIdentifiers) {
+        register(cell, forCellReuseIdentifier: reuseIdentifier.rawValue)
+    }
+
     func dequeueReusableCell(withIdentifier identifier: CellIdentifiers) -> UITableViewCell? {
         dequeueReusableCell(withIdentifier: identifier.rawValue)
     }
@@ -44,7 +48,7 @@ extension UITableView {
         backgroundView = messageLabel
         separatorStyle = .none
     }
-    
+
     func setBackgroundEmpty() {
         setEmptyMessageToBackground("")
     }

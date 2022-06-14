@@ -5,6 +5,7 @@
 //  Created by Nikandr Marhal on 13.11.2020.
 //
 
+import Combine
 import UIKit
 
 final class RepositoryCell: UITableViewCell {
@@ -19,7 +20,7 @@ final class RepositoryCell: UITableViewCell {
         view.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
         userAvatarImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        userAvatarImage.heightAnchor.constraint(equalTo: userAvatarImage.widthAnchor).isActive = true
+        userAvatarImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
         userAvatarImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         userAvatarImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
@@ -54,7 +55,6 @@ final class RepositoryCell: UITableViewCell {
         view.font = .preferredFont(forTextStyle: .headline)
 
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: topContentView.bottomAnchor, constant: 8).isActive = true
 
         return view
     }()
@@ -62,10 +62,10 @@ final class RepositoryCell: UITableViewCell {
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.font = .preferredFont(forTextStyle: .body)
+        view.lineBreakMode = .byWordWrapping
+        view.numberOfLines = 0
 
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 43).isActive = true
-        view.topAnchor.constraint(equalTo: repositoryNameLabel.bottomAnchor, constant: 5).isActive = true
 
         return view
     }()
@@ -77,11 +77,12 @@ final class RepositoryCell: UITableViewCell {
         view.addSubview(stargazersCountLabel)
         view.addSubview(languageIcon)
         view.addSubview(languageLabel)
+        view.addSubview(seenImage)
 
-        view.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
         starIcon.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        starIcon.heightAnchor.constraint(equalTo: starIcon.widthAnchor).isActive = true
+        starIcon.heightAnchor.constraint(equalToConstant: 20).isActive = true
         starIcon.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         starIcon.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
@@ -97,8 +98,7 @@ final class RepositoryCell: UITableViewCell {
         languageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
         seenImage.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        seenImage.heightAnchor.constraint(equalTo: seenImage.widthAnchor).isActive = true
-        seenImage.leadingAnchor.constraint(greaterThanOrEqualTo: languageLabel.trailingAnchor, constant: 0).isActive = true
+        seenImage.heightAnchor.constraint(equalToConstant: 20).isActive = true
         seenImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         seenImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
@@ -107,7 +107,9 @@ final class RepositoryCell: UITableViewCell {
 
     private lazy var starIcon: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "star")?.withTintColor(.darkGray)
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(systemName: "star")
+        view.tintColor = .darkGray
 
         view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -126,8 +128,12 @@ final class RepositoryCell: UITableViewCell {
 
     private lazy var languageIcon: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "chevron.left.forwardslash.chevron.right")?.withTintColor(.darkGray)
+        view.image = UIImage(systemName: "chevron.left.forwardslash.chevron.right")
+        view.tintColor = .darkGray
+        view.contentMode = .scaleAspectFit
+
         view.translatesAutoresizingMaskIntoConstraints = false
+
         return view
     }()
 
@@ -143,7 +149,12 @@ final class RepositoryCell: UITableViewCell {
 
     private lazy var seenImage: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "eye")?.withTintColor(.darkGray)
+        view.image = UIImage(systemName: "eye")
+        view.tintColor = .darkGray
+        view.contentMode = .scaleAspectFit
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+
         return view
     }()
 
@@ -166,20 +177,27 @@ final class RepositoryCell: UITableViewCell {
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(bottomContentView)
 
-        topContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        topContentView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        topContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        topContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        topContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        topContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20).isActive = true
 
-        repositoryNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        repositoryNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        repositoryNameLabel.topAnchor.constraint(equalTo: topContentView.bottomAnchor, constant: 8).isActive = true
         repositoryNameLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: 0).isActive = true
 
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        descriptionLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: 0).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: repositoryNameLabel.bottomAnchor, constant: 8).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
 
-        bottomContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        bottomContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        bottomContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
+        bottomContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        bottomContentView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8).isActive = true
+        bottomContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        bottomContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
     }
+
+    // MARK: - State
+
+    private var subscriptions = Set<AnyCancellable>()
 
     // MARK: - Methods
 
@@ -190,25 +208,28 @@ final class RepositoryCell: UITableViewCell {
         descriptionLabel.text = viewModel.repositoryDescription
         stargazersCountLabel.text = viewModel.starsCount
         languageLabel.text = viewModel.programmingLanguage
+
+        bindObservers(to: viewModel)
     }
 
-    func bindObservers(to viewModel: RepositoryCellViewModelType) {
-        viewModel.isVisited.subscribe { [weak self] isVisited in
-            guard let self = self else { return }
-            isVisited ? self.showVisitedImage() : self.hideVisitedImage()
-        }
+    private func bindObservers(to viewModel: RepositoryCellViewModelType) {
+        viewModel.isVisitedPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isVisited in
+                if isVisited {
+                    self?.showVisitedImage()
+                } else {
+                    self?.hideVisitedImage()
+                }
+            }
+            .store(in: &subscriptions)
     }
 
-    func showVisitedImage() {
-        UIView.transition(with: seenImage,
-                          duration: 0.4,
-                          options: .transitionCrossDissolve,
-                          animations: {
-                              self.seenImage.image = UIImage(systemName: "eye")?.withTintColor(.darkGray)
-                          })
+    private func showVisitedImage() {
+        seenImage.alpha = 1
     }
 
-    func hideVisitedImage() {
-        seenImage.image = nil
+    private func hideVisitedImage() {
+        seenImage.alpha = 0
     }
 }

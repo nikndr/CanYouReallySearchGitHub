@@ -5,6 +5,7 @@
 //  Created by Nikandr Marhal on 15.11.2020.
 //
 
+import Combine
 import Foundation
 
 class RepositoryCellViewModel: RepositoryCellViewModelType {
@@ -43,9 +44,11 @@ class RepositoryCellViewModel: RepositoryCellViewModelType {
         repository.avatarURL ?? "No data"
     }
 
-    var isVisited: Observable<Bool> {
-        Observable(repository.isVisited)
+    var isVisitedPublisher: AnyPublisher<Bool, Never> {
+        $isVisited.eraseToAnyPublisher()
     }
+
+    @Published var isVisited = false
 
     // MARK: - Initialization
 
@@ -57,7 +60,7 @@ class RepositoryCellViewModel: RepositoryCellViewModelType {
     // MARK: - Logic
 
     func setVisited() {
-        isVisited.value = true
+        isVisited = true
         repository.isVisited = true
         coreDataManager.saveContext()
     }

@@ -12,8 +12,14 @@ import UIKit
 final class RepositoryListViewController: UITableViewController {
     // MARK: - UI properties
 
-    @IBOutlet var crashBarButtonItem: UIBarButtonItem!
     private let searchController = UISearchController(searchResultsController: nil)
+
+    private let crashBarButtonItem: UIBarButtonItem = {
+        let item = UIBarButtonItem()
+        item.style = .done
+        item.title = "Crash"
+        return item
+    }()
 
     // MARK: - Data
 
@@ -46,8 +52,13 @@ final class RepositoryListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.register(cell: RepositoryCell.self, for: .repositoryCell)
         configureUI()
         bindData()
+
+        navigationItem.title = "Repositories"
+        navigationItem.rightBarButtonItem = crashBarButtonItem
     }
 
     // MARK: - UI configuration
@@ -64,8 +75,8 @@ final class RepositoryListViewController: UITableViewController {
         definesPresentationContext = true
 
         // Cinfigure bar items
-//        crashBarButtonItem.target = self
-//        crashBarButtonItem.action = #selector(onCrashBarButtonPressed(sender:))
+        crashBarButtonItem.target = self
+        crashBarButtonItem.action = #selector(onCrashBarButtonPressed(sender:))
     }
 
     private func reloadDataAsync() {
@@ -115,12 +126,16 @@ final class RepositoryListViewController: UITableViewController {
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         let numberOfRows = viewModel.numberOfRows()
-        crashlytics.setValue(numberOfRows, forKey: "loaded_repositories")
+//        crashlytics.setValue(numberOfRows, forKey: "loaded_repositories")
         return numberOfRows
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        crashlytics.setValue(indexPath.row, forKey: "last_tapped_at_row")
+        crashlytics.setCustomValue(indexPath.row, forKey: "last_tapped_at_row")
         crashlytics.log("selecting row at \(indexPath.row)")
         guard
             let cellViewModel = viewModel.cellViewModel(forRowAt: indexPath),
@@ -150,11 +165,13 @@ final class RepositoryListViewController: UITableViewController {
     // MARK: - Table View Data Source
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: .repositoryCell) as? RepositoryCell else {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: .repositoryCell) as? RepositoryCell,
+            let cellViewModel = viewModel.cellViewModel(forRowAt: indexPath)
+        else {
             return UITableViewCell()
         }
-        let cellViewModel = viewModel.cellViewModel(forRowAt: indexPath)
-        cell.viewModel = cellViewModel
+        cell.fillCell(withDataOf: cellViewModel)
         return cell
     }
 }

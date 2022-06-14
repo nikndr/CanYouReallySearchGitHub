@@ -31,7 +31,6 @@
 		9396D657256285FB003E92A8 /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9396D653256285FB003E92A8 /* Repository+CoreDataClass.swift */; };
 		93C737C1255C84B400DD064E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C737C0255C84B400DD064E /* AppDelegate.swift */; };
 		93C737C3255C84B400DD064E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C737C2255C84B400DD064E /* SceneDelegate.swift */; };
-		93C737C8255C84B400DD064E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C737C6255C84B400DD064E /* Main.storyboard */; };
 		93C737CB255C84B400DD064E /* CanYouReallySearchGitHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C737C9255C84B400DD064E /* CanYouReallySearchGitHub.xcdatamodeld */; };
 		93C737CD255C84B500DD064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C737CC255C84B500DD064E /* Assets.xcassets */; };
 		93C737D0255C84B500DD064E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C737CE255C84B500DD064E /* LaunchScreen.storyboard */; };
@@ -70,7 +69,6 @@
 		0B63E8DB5598BE7E3BE1F6A7 /* Pods_CanYouReallySearchGitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CanYouReallySearchGitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		583E2229285783EF0072832C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		583E222B285798B60072832C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		583E22362857DC2F0072832C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		93096A142560051700378830 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		93096A17256105A500378830 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		93096A1A256105D500378830 /* SearchViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelType.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		93C737BD255C84B400DD064E /* CanYouReallySearchGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanYouReallySearchGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C737C0255C84B400DD064E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93C737C2255C84B400DD064E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93C737C7255C84B400DD064E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93C737CA255C84B400DD064E /* CanYouReallySearchGitHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CanYouReallySearchGitHub.xcdatamodel; sourceTree = "<group>"; };
 		93C737CC255C84B500DD064E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93C737CF255C84B500DD064E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -201,7 +198,6 @@
 				93C737CC255C84B500DD064E /* Assets.xcassets */,
 				93C737C0255C84B400DD064E /* AppDelegate.swift */,
 				93C737C2255C84B400DD064E /* SceneDelegate.swift */,
-				93C737C6255C84B400DD064E /* Main.storyboard */,
 				93C737CE255C84B500DD064E /* LaunchScreen.storyboard */,
 				93C737C9255C84B400DD064E /* CanYouReallySearchGitHub.xcdatamodeld */,
 			);
@@ -442,7 +438,6 @@
 				93C737D0255C84B500DD064E /* LaunchScreen.storyboard in Resources */,
 				583E222C285798B60072832C /* GoogleService-Info.plist in Resources */,
 				93C737CD255C84B500DD064E /* Assets.xcassets in Resources */,
-				93C737C8255C84B400DD064E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,15 +555,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		93C737C6255C84B400DD064E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93C737C7255C84B400DD064E /* Base */,
-				583E22362857DC2F0072832C /* en */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		93C737CE255C84B500DD064E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -714,7 +700,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ua.edu.ukma.nmarhal.CanYouReallySearchGitHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "NM UKMA EDU Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "UKMA Edu Shared Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
