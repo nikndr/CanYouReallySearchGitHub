@@ -160,7 +160,12 @@
                             <outlet property="delegate" destination="Qee-uK-Z8U" id="2f6-vV-fEy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Repositories" largeTitleDisplayMode="always" id="yuR-81-Meq"/>
+                    <navigationItem key="navigationItem" title="Repositories" largeTitleDisplayMode="always" id="yuR-81-Meq">
+                        <barButtonItem key="rightBarButtonItem" title="Crash" style="done" id="sL7-oP-PhJ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="crashBarButtonItem" destination="sL7-oP-PhJ" id="G8O-XT-UBD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvc-tH-bdv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

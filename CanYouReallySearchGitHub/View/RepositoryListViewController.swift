@@ -5,16 +5,14 @@
 //  Created by Nikandr Marhal on 13.11.2020.
 //
 
+import FirebaseCrashlytics
 import SafariServices
 import UIKit
 
-class RepositoryListViewController: UITableViewController {
-    // MARK: - Injected properties
-
-    private let viewModel = SearchViewModel()
-
+final class RepositoryListViewController: UITableViewController {
     // MARK: - UI properties
 
+    @IBOutlet var crashBarButtonItem: UIBarButtonItem!
     private let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - Data
@@ -28,6 +26,11 @@ class RepositoryListViewController: UITableViewController {
         return text.isEmpty
     }
 
+    // MARK: - Dependencies
+
+    private let viewModel = SearchViewModel()
+    private let crashlytics = Crashlytics.crashlytics()
+
     // MARK: - Lifecycle
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +38,7 @@ class RepositoryListViewController: UITableViewController {
         viewModel.fetchLocalData { [unowned self] error in
             if let error = error {
                 UIAlertController.showDefaultAlert(withTitle: "Oops!", message: error.localizedDescription, presenter: self)
-                return 
+                return
             }
             self.reloadDataAsync()
         }
@@ -49,7 +52,7 @@ class RepositoryListViewController: UITableViewController {
 
     // MARK: - UI configuration
 
-    func configureUI() {
+    private func configureUI() {
         // Configure NavBar title
         navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -59,17 +62,27 @@ class RepositoryListViewController: UITableViewController {
         searchController.searchBar.placeholder = "Search Repositories"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+
+        // Cinfigure bar items
+//        crashBarButtonItem.target = self
+//        crashBarButtonItem.action = #selector(onCrashBarButtonPressed(sender:))
     }
 
-    func reloadDataAsync() {
+    private func reloadDataAsync() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
     }
 
+    @objc
+    private func onCrashBarButtonPressed(sender: UIBarButtonItem) {
+        crashlytics.log("tapping CRASH button. What might go wrong...")
+        fatalError("Intentionally crashing app")
+    }
+
     // MARK: - Data binding
 
-    func bindData() {
+    private func bindData() {
         viewModel.isFetching.subscribe { [unowned self] isDataFetching in
             if isDataFetching == true {
                 tableView.setSpinnerToBackground()
@@ -87,7 +100,7 @@ class RepositoryListViewController: UITableViewController {
 
     // MARK: - Fetch data
 
-    func fetchRepositories() {
+    private func fetchRepositories() {
         guard let searchBarText = searchBarText, searchBarText.trimmingCharacters(in: [" "]).count > 0 else { return }
         viewModel.fetchRepositories(withRawSearchInput: searchBarText) { [unowned self] error in
             if let error = error {
@@ -101,10 +114,14 @@ class RepositoryListViewController: UITableViewController {
     // MARK: - Table View Delegate
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        viewModel.numberOfRows()
+        let numberOfRows = viewModel.numberOfRows()
+        crashlytics.setValue(numberOfRows, forKey: "loaded_repositories")
+        return numberOfRows
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        crashlytics.setValue(indexPath.row, forKey: "last_tapped_at_row")
+        crashlytics.log("selecting row at \(indexPath.row)")
         guard
             let cellViewModel = viewModel.cellViewModel(forRowAt: indexPath),
             let urlToRepository = URL(string: cellViewModel.urlToRepositoryPage)
