@@ -6,6 +6,7 @@
 //
 
 import Combine
+import FirebasePerformance
 import UIKit
 
 final class RepositoryCell: UITableViewCell {
@@ -202,14 +203,27 @@ final class RepositoryCell: UITableViewCell {
     // MARK: - Methods
 
     func fillCell(withDataOf viewModel: RepositoryCellViewModelType) {
-        userAvatarImage.setContentDownloaded(from: viewModel.avatarURL)
         userNameLabel.text = viewModel.userName
         repositoryNameLabel.text = viewModel.repositoryName
         descriptionLabel.text = viewModel.repositoryDescription
         stargazersCountLabel.text = viewModel.starsCount
         languageLabel.text = viewModel.programmingLanguage
 
+        if let avatarUrl = viewModel.avatarURL {
+            loadUserImage(from: avatarUrl)
+        }
+
         bindObservers(to: viewModel)
+    }
+
+    private func loadUserImage(from url: URL) {
+        let imageLoadTrace = Performance.startTrace(name: "load-profile-image")
+        loadImage(from: url) { [weak self] image in
+            DispatchQueue.main.async {
+                self?.userAvatarImage.image = image
+            }
+            imageLoadTrace?.stop()
+        }
     }
 
     private func bindObservers(to viewModel: RepositoryCellViewModelType) {

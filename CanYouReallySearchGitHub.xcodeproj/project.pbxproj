@@ -14,7 +14,7 @@
 		93096A1B256105D500378830 /* SearchViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A1A256105D500378830 /* SearchViewModelType.swift */; };
 		93096A1E2561061300378830 /* RepositoryCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A1D2561061300378830 /* RepositoryCellViewModelType.swift */; };
 		93096A232561080F00378830 /* RepositoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A222561080F00378830 /* RepositoryCellViewModel.swift */; };
-		93096A2625610FCB00378830 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A2525610FCB00378830 /* UIImageViewExtension.swift */; };
+		93096A2625610FCB00378830 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A2525610FCB00378830 /* LoadImage.swift */; };
 		93096A2C25613B0200378830 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A2B25613B0200378830 /* Observable.swift */; };
 		93096A3625616F1D00378830 /* FormatSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A3525616F1D00378830 /* FormatSearchQuery.swift */; };
 		93096A3A25619F2300378830 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A3925619F2300378830 /* UIAlertControllerExtension.swift */; };
@@ -74,7 +74,7 @@
 		93096A1A256105D500378830 /* SearchViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelType.swift; sourceTree = "<group>"; };
 		93096A1D2561061300378830 /* RepositoryCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellViewModelType.swift; sourceTree = "<group>"; };
 		93096A222561080F00378830 /* RepositoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellViewModel.swift; sourceTree = "<group>"; };
-		93096A2525610FCB00378830 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		93096A2525610FCB00378830 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		93096A2B25613B0200378830 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		93096A3525616F1D00378830 /* FormatSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatSearchQuery.swift; sourceTree = "<group>"; };
 		93096A3925619F2300378830 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
@@ -149,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				93096A142560051700378830 /* UITableViewExtension.swift */,
-				93096A2525610FCB00378830 /* UIImageViewExtension.swift */,
 				93096A3925619F2300378830 /* UIAlertControllerExtension.swift */,
 				93096A3C2561A83000378830 /* UIActivityIndicatorViewExtension.swift */,
 			);
@@ -285,14 +284,15 @@
 		93C737DB255C8AC000DD064E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				583E2229285783EF0072832C /* Request.swift */,
-				93C737EB255C9B9C00DD064E /* NetworkManager.swift */,
 				93096A3F2561AC2C00378830 /* Configuration */,
 				93C737FE255D620300DD064E /* Error */,
 				93C737F9255D614E00DD064E /* Service */,
 				93C7387A255DAFD700DD064E /* Encoding */,
 				93C73884255DB2B600DD064E /* EndPoints */,
 				93C73890255DBC6500DD064E /* Extensions */,
+				583E2229285783EF0072832C /* Request.swift */,
+				93C737EB255C9B9C00DD064E /* NetworkManager.swift */,
+				93096A2525610FCB00378830 /* LoadImage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -544,7 +544,7 @@
 				93C737EF255C9BD500DD064E /* RepositoryRemote.swift in Sources */,
 				93096A3625616F1D00378830 /* FormatSearchQuery.swift in Sources */,
 				93C73896255DE84000DD064E /* UserRemote.swift in Sources */,
-				93096A2625610FCB00378830 /* UIImageViewExtension.swift in Sources */,
+				93096A2625610FCB00378830 /* LoadImage.swift in Sources */,
 				93096A1B256105D500378830 /* SearchViewModelType.swift in Sources */,
 				93C737C3255C84B400DD064E /* SceneDelegate.swift in Sources */,
 				93C73882255DB16E00DD064E /* NetworkError.swift in Sources */,

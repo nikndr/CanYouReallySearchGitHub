@@ -40,8 +40,11 @@ class RepositoryCellViewModel: RepositoryCellViewModelType {
         repository.htmlURL ?? "No data"
     }
 
-    var avatarURL: String {
-        repository.avatarURL ?? "No data"
+    var avatarURL: URL? {
+        guard let urlString = repository.avatarURL else {
+            return nil
+        }
+        return URL(string: urlString)
     }
 
     var isVisitedPublisher: AnyPublisher<Bool, Never> {

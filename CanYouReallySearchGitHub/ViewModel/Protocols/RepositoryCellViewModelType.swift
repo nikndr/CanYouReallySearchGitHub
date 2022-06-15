@@ -21,7 +21,7 @@ protocol RepositoryCellViewModelType: AnyObject {
 
     var urlToRepositoryPage: String { get }
 
-    var avatarURL: String { get }
+    var avatarURL: URL? { get }
 
     var isVisitedPublisher: AnyPublisher<Bool, Never> { get }
 
