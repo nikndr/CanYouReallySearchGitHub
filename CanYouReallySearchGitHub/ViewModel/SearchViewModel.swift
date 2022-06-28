@@ -5,6 +5,7 @@
 //  Created by Nikandr Marhal on 15.11.2020.
 //
 
+import FirebasePerformance
 import Foundation
 
 enum FetchError: Error {
@@ -65,6 +66,7 @@ class SearchViewModel: NSObject, SearchViewModelType {
         lastSearchQuery = searchQuery
 
         isFetching.value = true
+        let repositoryLoadTrace = Performance.startTrace(name: "repositoryLoadTrace")
         networkManager.fetchRepositories(query: searchQuery, pageNumber: pageNumber) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -72,11 +74,13 @@ class SearchViewModel: NSObject, SearchViewModelType {
                 switch result {
                 case let .success(repositoriesResponse):
                     self.save(newRepositories: repositoriesResponse.items)
+                    repositoryLoadTrace?.incrementMetric("repositoryCount", by: Int64(repositoriesResponse.items.count))
                     completion(nil)
                 case .failure:
                     completion(.fetchRemoteDataError)
                 }
             }
+            repositoryLoadTrace?.stop()
         }
     }
 

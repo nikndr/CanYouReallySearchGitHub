@@ -87,7 +87,7 @@ final class RepositoryListViewController: UITableViewController {
 
     @objc
     private func onCrashBarButtonPressed(sender: UIBarButtonItem) {
-        crashlytics.log("tapping CRASH button. What might go wrong...")
+        crashlytics.log("Pressing Crash Button. What might go wrong...")
         fatalError("Intentionally crashing app")
     }
 
@@ -135,8 +135,8 @@ final class RepositoryListViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        crashlytics.setCustomValue(indexPath.row, forKey: "last_tapped_at_row")
-        crashlytics.log("selecting row at \(indexPath.row)")
+        crashlytics.log("Selecting row at \(indexPath.row)")
+        crashlytics.setCustomValue(indexPath.row, forKey: "last_selected_row")
         guard
             let cellViewModel = viewModel.cellViewModel(forRowAt: indexPath),
             let urlToRepository = URL(string: cellViewModel.urlToRepositoryPage)

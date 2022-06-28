@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5825AFC9285B576000E34ADE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5825AFC8285B575F00E34ADE /* GoogleService-Info.plist */; };
 		583E222A285783EF0072832C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583E2229285783EF0072832C /* Request.swift */; };
-		583E222C285798B60072832C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 583E222B285798B60072832C /* GoogleService-Info.plist */; };
 		93096A152560051700378830 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A142560051700378830 /* UITableViewExtension.swift */; };
 		93096A18256105A500378830 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A17256105A500378830 /* SearchViewModel.swift */; };
 		93096A1B256105D500378830 /* SearchViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A1A256105D500378830 /* SearchViewModelType.swift */; };
@@ -67,8 +67,8 @@
 
 /* Begin PBXFileReference section */
 		0B63E8DB5598BE7E3BE1F6A7 /* Pods_CanYouReallySearchGitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CanYouReallySearchGitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5825AFC8285B575F00E34ADE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		583E2229285783EF0072832C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		583E222B285798B60072832C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93096A142560051700378830 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		93096A17256105A500378830 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		93096A1A256105D500378830 /* SearchViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelType.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 		93C737B4255C84B400DD064E = {
 			isa = PBXGroup;
 			children = (
-				583E222B285798B60072832C /* GoogleService-Info.plist */,
+				5825AFC8285B575F00E34ADE /* GoogleService-Info.plist */,
 				93C737BF255C84B400DD064E /* CanYouReallySearchGitHub */,
 				93C737BE255C84B400DD064E /* Products */,
 				583E22242857834B0072832C /* Recovered References */,
@@ -436,8 +436,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93C737D0255C84B500DD064E /* LaunchScreen.storyboard in Resources */,
-				583E222C285798B60072832C /* GoogleService-Info.plist in Resources */,
 				93C737CD255C84B500DD064E /* Assets.xcassets in Resources */,
+				5825AFC9285B576000E34ADE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,7 +723,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ua.edu.ukma.nmarhal.CanYouReallySearchGitHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "NM UKMA EDU Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "UKMA Edu Shared Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Build Number</key>
+	<integer>52</integer>
+	<key>CFBundleIdentifier</key>
+	<string>com.dev.cool-app</string>
+	<key>Developer</key>
+	<dict>
+		<key>Age</key>
+		<integer>25</integer>
+		<key>Level</key>
+		<string>Middle</string>
+		<key>Name</key>
+		<string>Anon</string>
+	</dict>
+	<key>IsCoolApp</key>
+	<true/>
+	<key>Random</key>
+	<real>97.220001220703125</real>
+	<key>Version</key>
+	<string>1.0.0</string>
+</dict>
+</plist>

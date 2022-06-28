@@ -7,10 +7,7 @@
 
 import CoreData
 import UIKit
-
 import FirebaseCore
-import FirebaseCrashlytics
-import FirebasePerformance
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-//        sendUnsentReports()
 
         return true
     }
@@ -49,14 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
-    private func sendUnsentReports() {
-        Crashlytics.crashlytics().checkForUnsentReports { unsentReportsPresent in
-            if unsentReportsPresent {
-                Crashlytics.crashlytics().sendUnsentReports()
             }
         }
     }
