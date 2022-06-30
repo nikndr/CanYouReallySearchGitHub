@@ -79,8 +79,12 @@ Dependencies/
 
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
 fastlane/test_output
+
+screenshots/**/*.png
+screenshots/**
+output/**
+Exports/**
 
 # Code Injection
 #
@@ -88,6 +92,3 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-
-# macOS file system
-.DS_Store

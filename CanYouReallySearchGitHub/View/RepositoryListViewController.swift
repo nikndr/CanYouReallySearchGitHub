@@ -100,7 +100,7 @@ final class RepositoryListViewController: UITableViewController {
                 tableView.addFooterSpinner()
             } else {
                 if viewModel.numberOfRows() == 0 {
-                    tableView.setEmptyMessageToBackground("Nothing here!")
+//                    tableView.setEmptyMessageToBackground("Nothing here!")
                 } else {
                     tableView.setBackgroundEmpty()
                 }
