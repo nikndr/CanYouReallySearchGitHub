@@ -39,6 +39,18 @@ platform :ios do
     # )
   end
 
+  lane :build_and_export do |options|
+    gym
+    google_app_id = get_info_plist_value(
+      path: "./GoogleService-Info.plist",
+      key:"GOOGLE_APP_ID"
+    )
+    firebase_app_distribution(
+      app: google_app_id,
+      release_notes: "new version"
+    )
+  end
+
   after_all do |lane| 
     
   end

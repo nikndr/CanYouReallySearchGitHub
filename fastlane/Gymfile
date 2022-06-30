@@ -6,7 +6,7 @@
 
 clean(true)
 
-scheme("App_Debug")
+scheme("App_Release")
 workspace("CanYouReallySearchGitHub.xcworkspace")
 
 destination("generic/platform=iOS")

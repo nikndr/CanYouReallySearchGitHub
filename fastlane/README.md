@@ -31,6 +31,14 @@ Description of what the lane does
 
 Performing debug build
 
+### ios build_and_export
+
+```sh
+[bundle exec] fastlane ios build_and_export
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

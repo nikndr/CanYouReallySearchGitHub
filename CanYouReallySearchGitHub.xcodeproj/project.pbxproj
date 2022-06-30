@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		583E222A285783EF0072832C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583E2229285783EF0072832C /* Request.swift */; };
 		5864619D286D726A009D5DF1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5864619C286D726A009D5DF1 /* .gitignore */; };
+		5864619F286D73FE009D5DF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5864619E286D73FE009D5DF1 /* GoogleService-Info.plist */; };
+		586461A1286D80E7009D5DF1 /* Pluginfile in Resources */ = {isa = PBXBuildFile; fileRef = 586461A0286D80E7009D5DF1 /* Pluginfile */; };
 		5899590F286B7273006503CB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5899590C286B7273006503CB /* exportOptions.plist */; };
 		58995910286B7273006503CB /* exportOptionsTemplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5899590D286B7273006503CB /* exportOptionsTemplate.plist */; };
 		58995911286B7273006503CB /* archive-script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5899590E286B7273006503CB /* archive-script.sh */; };
@@ -92,6 +94,8 @@
 		0B63E8DB5598BE7E3BE1F6A7 /* Pods_CanYouReallySearchGitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CanYouReallySearchGitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		583E2229285783EF0072832C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		5864619C286D726A009D5DF1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5864619E286D73FE009D5DF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		586461A0286D80E7009D5DF1 /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
 		5899590C286B7273006503CB /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = exportOptions.plist; sourceTree = SOURCE_ROOT; };
 		5899590D286B7273006503CB /* exportOptionsTemplate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = exportOptionsTemplate.plist; sourceTree = SOURCE_ROOT; };
 		5899590E286B7273006503CB /* archive-script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "archive-script.sh"; sourceTree = SOURCE_ROOT; };
@@ -203,6 +207,7 @@
 		58C13C00286CDA5E00C14A17 /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
+				586461A0286D80E7009D5DF1 /* Pluginfile */,
 				58C13C01286CDA5E00C14A17 /* Gymfile */,
 				58C13C02286CDA5E00C14A17 /* Appfile */,
 				58C13C04286CDA5E00C14A17 /* Fastfile */,
@@ -301,6 +306,7 @@
 		93C737B4255C84B400DD064E = {
 			isa = PBXGroup;
 			children = (
+				5864619E286D73FE009D5DF1 /* GoogleService-Info.plist */,
 				5864619C286D726A009D5DF1 /* .gitignore */,
 				58995913286B72B9006503CB /* Gemfile */,
 				58C13C00286CDA5E00C14A17 /* fastlane */,
@@ -558,6 +564,7 @@
 				58C13C0B286CDA5E00C14A17 /* Fastfile in Resources */,
 				93C737D0255C84B500DD064E /* LaunchScreen.storyboard in Resources */,
 				58995910286B7273006503CB /* exportOptionsTemplate.plist in Resources */,
+				586461A1286D80E7009D5DF1 /* Pluginfile in Resources */,
 				58C13C0E286CDA5E00C14A17 /* Snapfile in Resources */,
 				93C737CD255C84B500DD064E /* Assets.xcassets in Resources */,
 				58C13C09286CDA5E00C14A17 /* Appfile in Resources */,
@@ -568,6 +575,7 @@
 				58C13C0C286CDA5E00C14A17 /* README.md in Resources */,
 				5864619D286D726A009D5DF1 /* .gitignore in Resources */,
 				5899590F286B7273006503CB /* exportOptions.plist in Resources */,
+				5864619F286D73FE009D5DF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
