@@ -16,7 +16,6 @@
 		586461B0286DC5B1009D5DF1 /* App_UITestLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586461AF286DC5B1009D5DF1 /* App_UITestLaunchTests.swift */; };
 		586461BC286DC7E2009D5DF1 /* Pluginfile in Resources */ = {isa = PBXBuildFile; fileRef = 586461B6286DC7E2009D5DF1 /* Pluginfile */; };
 		586461BD286DC7E2009D5DF1 /* Gymfile in Resources */ = {isa = PBXBuildFile; fileRef = 586461B7286DC7E2009D5DF1 /* Gymfile */; };
-		586461BE286DC7E2009D5DF1 /* report.xml in Resources */ = {isa = PBXBuildFile; fileRef = 586461B8286DC7E2009D5DF1 /* report.xml */; };
 		586461BF286DC7E2009D5DF1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 586461B9286DC7E2009D5DF1 /* README.md */; };
 		586461C0286DC7E2009D5DF1 /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 586461BA286DC7E2009D5DF1 /* Snapfile */; };
 		586461C2286DC7E9009D5DF1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586461BB286DC7E2009D5DF1 /* SnapshotHelper.swift */; };
@@ -103,7 +102,6 @@
 		586461AF286DC5B1009D5DF1 /* App_UITestLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App_UITestLaunchTests.swift; sourceTree = "<group>"; };
 		586461B6286DC7E2009D5DF1 /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
 		586461B7286DC7E2009D5DF1 /* Gymfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gymfile; sourceTree = "<group>"; };
-		586461B8286DC7E2009D5DF1 /* report.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
 		586461B9286DC7E2009D5DF1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		586461BA286DC7E2009D5DF1 /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
 		586461BB286DC7E2009D5DF1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 				586461B7286DC7E2009D5DF1 /* Gymfile */,
 				586461B6286DC7E2009D5DF1 /* Pluginfile */,
 				586461B9286DC7E2009D5DF1 /* README.md */,
-				586461B8286DC7E2009D5DF1 /* report.xml */,
 				586461BA286DC7E2009D5DF1 /* Snapfile */,
 				586461A3286DC184009D5DF1 /* Appfile */,
 				586461A4286DC184009D5DF1 /* Fastfile */,
@@ -568,7 +565,6 @@
 				586461BD286DC7E2009D5DF1 /* Gymfile in Resources */,
 				586461A6286DC184009D5DF1 /* Fastfile in Resources */,
 				93C737D0255C84B500DD064E /* LaunchScreen.storyboard in Resources */,
-				586461BE286DC7E2009D5DF1 /* report.xml in Resources */,
 				58995910286B7273006503CB /* exportOptionsTemplate.plist in Resources */,
 				93C737CD255C84B500DD064E /* Assets.xcassets in Resources */,
 				586461BC286DC7E2009D5DF1 /* Pluginfile in Resources */,
