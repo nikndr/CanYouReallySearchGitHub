@@ -4,6 +4,9 @@ workflows:
     environment:
       xcode: latest
       cocoapods: default
+      groups:
+        - debug
+        - release
       vars:
           XCODE_WORKSPACE: "CanYouReallySearchGitHub.xcworkspace" # <-- Put the name of your project here.
           XCODE_SCHEME: "App_Debug" # <-- Put the name of your scheme here.
