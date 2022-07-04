@@ -41,6 +41,9 @@ workflows:
       groups:
         - certificate_credentials
         - firebase
+      vars:
+        XCODE_WORKSPACE: "CanYouReallySearchGitHub.xcworkspace"
+        XCODE_SCHEME: "App_Debug"
     scripts:
       - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
         script: keychain initialize
@@ -59,12 +62,6 @@ workflows:
         script: xcode-project use-profiles
       - name: Build .ipa
         script: xcode-project build-ipa --workspace "$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
-      - name: Install fastlane and firebase export plugin
-        script: gem install bundler
-      - name: Run build and export
-        script: |
-          bundle install
-          bundle exec fastlane build_and_export
     triggering:
       events:
         - push
