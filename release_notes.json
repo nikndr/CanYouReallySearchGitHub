@@ -1,0 +1,11 @@
+[
+    {
+        "language": "en-GB",
+        "text": "Releasing new app version!",
+        "description": "Updated app description",
+        "keywords": "keyword, other keyword",
+        "promotional_text": "Promotional text",
+        "marketing_url": "https://example.com",
+        "support_url": "https://example.com"
+    }
+]

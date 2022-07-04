@@ -24,6 +24,7 @@
 		58995911286B7273006503CB /* archive-script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5899590E286B7273006503CB /* archive-script.sh */; };
 		58995914286B72B9006503CB /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 58995913286B72B9006503CB /* Gemfile */; };
 		589E3DDC287340A100903402 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 589E3DDB287340A100903402 /* codemagic.yaml */; };
+		589E3DDE287384F200903402 /* release_notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 589E3DDD287384F200903402 /* release_notes.json */; };
 		93096A152560051700378830 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A142560051700378830 /* UITableViewExtension.swift */; };
 		93096A18256105A500378830 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A17256105A500378830 /* SearchViewModel.swift */; };
 		93096A1B256105D500378830 /* SearchViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93096A1A256105D500378830 /* SearchViewModelType.swift */; };
@@ -110,6 +111,7 @@
 		5899590E286B7273006503CB /* archive-script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "archive-script.sh"; sourceTree = SOURCE_ROOT; };
 		58995913286B72B9006503CB /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		589E3DDB287340A100903402 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
+		589E3DDD287384F200903402 /* release_notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = release_notes.json; sourceTree = "<group>"; };
 		93096A142560051700378830 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		93096A17256105A500378830 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		93096A1A256105D500378830 /* SearchViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelType.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				5864619C286D726A009D5DF1 /* .gitignore */,
 				58995913286B72B9006503CB /* Gemfile */,
 				589E3DDB287340A100903402 /* codemagic.yaml */,
+				589E3DDD287384F200903402 /* release_notes.json */,
 				586461A2286DC184009D5DF1 /* fastlane */,
 				5899590B286B7264006503CB /* build-utils */,
 				93C737BF255C84B400DD064E /* CanYouReallySearchGitHub */,
@@ -564,6 +567,7 @@
 				586461C0286DC7E2009D5DF1 /* Snapfile in Resources */,
 				586461BD286DC7E2009D5DF1 /* Gymfile in Resources */,
 				586461A6286DC184009D5DF1 /* Fastfile in Resources */,
+				589E3DDE287384F200903402 /* release_notes.json in Resources */,
 				93C737D0255C84B500DD064E /* LaunchScreen.storyboard in Resources */,
 				58995910286B7273006503CB /* exportOptionsTemplate.plist in Resources */,
 				93C737CD255C84B500DD064E /* Assets.xcassets in Resources */,
