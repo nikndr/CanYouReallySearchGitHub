@@ -39,8 +39,8 @@ workflows:
         # CM_CERTIFICATE
         # CM_CERTIFICATE_PASSWORD
         # CM_PROVISIONING_PROFILE
-       - certificate_credentials
-        # CM_VERSION
+        - certificate_credentials
+       # CM_VERSION
         - app_config
       vars:
         XCODE_WORKSPACE: "CanYouReallySearchGitHub.xcworkspace"
