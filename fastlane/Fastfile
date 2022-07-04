@@ -37,7 +37,7 @@ platform :ios do
       key: "GOOGLE_APP_ID"
     )
     firebase_app_distribution(
-      release_notes: "New version",
+      release_notes: "New version (with codemagic)",
       app: google_app_id
     )
   end

@@ -30,6 +30,14 @@ workflows:
           # cd ios # not shure if needed
           bundle install
           bundle exec fastlane build_and_export
+    triggering:
+      events:
+        - push
+      branch_patterns: 
+        - pattern: *
+        - pattern: develop
+          include: false
+      cancel_previous_builds: true
   ios-project-build-and-sign:
     name: Build and Sign App
     environment:
