@@ -28,6 +28,10 @@ platform :ios do
 
   lane :build_and_export do 
     gym
+    export_to_firebase
+  end
+
+  lane :export_to_firebase do
     google_app_id = get_info_plist_value(
       path: "./GoogleService-Info.plist",
       key: "GOOGLE_APP_ID"
@@ -36,5 +40,5 @@ platform :ios do
       release_notes: "New version",
       app: google_app_id
     )
-  end 
+  end
 end
