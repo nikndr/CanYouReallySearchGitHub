@@ -6,6 +6,7 @@ workflows:
       cocoapods: default
       groups:
         - certificate_credentials
+        - firebase
     scripts:
       - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
         script: keychain initialize
