@@ -1,10 +1,9 @@
-scheme("App_UITests")
+# Uncomment the lines below you want to change by removing the # in the beginning
 
-devices(["iPhone 13", "iPhone 8"])
-languages(["en-US", "de-DE"])
-
+devices(["iPhone 13"])
+languages(["en-US"])
+scheme("App_UITest")
 output_directory("./screenshots")
-
 clear_previous_screenshots(true)
-
 override_status_bar(true)
+

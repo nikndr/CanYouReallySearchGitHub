@@ -1,13 +1,13 @@
 //
-//  CanYouReallySearchGitHubUITestsLaunchTests.swift
-//  CanYouReallySearchGitHubUITests
+//  App_UITestLaunchTests.swift
+//  App_UITest
 //
-//  Created by Nikandr Marhal on 29.06.2022.
+//  Created by Nikandr Marhal on 30.06.2022.
 //
 
 import XCTest
 
-class CanYouReallySearchGitHubUITestsLaunchTests: XCTestCase {
+class App_UITestLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

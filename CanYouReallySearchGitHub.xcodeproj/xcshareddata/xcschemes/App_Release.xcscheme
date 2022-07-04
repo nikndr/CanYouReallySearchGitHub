@@ -38,6 +38,16 @@
                ReferencedContainer = "container:CanYouReallySearchGitHub.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "586461AA286DC5B1009D5DF1"
+               BuildableName = "App_UITest.xctest"
+               BlueprintName = "App_UITest"
+               ReferencedContainer = "container:CanYouReallySearchGitHub.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

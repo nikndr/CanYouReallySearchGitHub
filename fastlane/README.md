@@ -29,7 +29,7 @@ Description of what the lane does
 [bundle exec] fastlane ios make_screenshots
 ```
 
-Performing debug build
+
 
 ### ios build_and_export
 
