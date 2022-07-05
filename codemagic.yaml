@@ -23,12 +23,12 @@ workflows:
           keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD    
       - name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles
-      - name: Install fastlane and firebase export plugin
-        script: gem install bundler
-      - name: Run build and export
+      - name: Install bundler and gems
         script: |
-          bundle install
-          bundle exec fastlane build_and_export
+            gem install bundler
+            bundle install
+      - name: Run build and export
+        script: bundle exec fastlane build_and_export
     publishing:
       email:
         recipients:
