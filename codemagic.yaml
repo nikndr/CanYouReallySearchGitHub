@@ -1,27 +1,37 @@
+definitions: 
+  env_versions: &env_versions
+    xcode: latest 
+    cocoapods: default
+  xcode_project_names: &xcode_project_names
+    XCODE_WORKSPACE: "CanYouReallySearchGitHub.xcworkspace"
+    XCODE_SCHEME: "App_Debug"
 workflows:
   build-and-export-to-firebase-fastlane:
     name: Build and Export to Firebase with Fastlane
     environment:
-      xcode: latest
-      cocoapods: default
+      << : *env_versions
       groups:
         - certificate_credentials
         - firebase
     scripts:
-      - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
+      - &init_keychain
+        name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
         script: keychain initialize
-      - name: Set up Provisioning profiles from environment variables
+      - &setup_provosioning_profiles
+        name: Set up Provisioning profiles from environment variables
         script: |
           PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
           mkdir -p "$PROFILES_HOME"
           PROFILE_PATH="$(mktemp "$PROFILES_HOME"/$(uuidgen).mobileprovision)"
           echo ${CM_PROVISIONING_PROFILE} | base64 --decode > "$PROFILE_PATH"
           echo "Saved provisioning profile $PROFILE_PATH"      
-      - name: Set up signing certificate
+      - &setup_certificate
+        name: Set up signing certificate
         script: |
           echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
           keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD    
-      - name: Set up code signing settings on Xcode project
+      - &use_profiles
+        name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles
       - name: Install bundler and gems
         script: |
@@ -36,30 +46,17 @@ workflows:
   build-and-export-to-firebase-codemagic:
     name: Build and Export to Firebase with Codemagic
     environment:
-      xcode: latest
-      cocoapods: default
+      << : *env_versions
       groups:
         - certificate_credentials
         - firebase
       vars:
-        XCODE_WORKSPACE: "CanYouReallySearchGitHub.xcworkspace"
-        XCODE_SCHEME: "App_Debug"
+        << : *xcode_project_names
     scripts:
-      - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
-        script: keychain initialize
-      - name: Set up Provisioning profiles from environment variables
-        script: |
-          PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
-          mkdir -p "$PROFILES_HOME"
-          PROFILE_PATH="$(mktemp "$PROFILES_HOME"/$(uuidgen).mobileprovision)"
-          echo ${CM_PROVISIONING_PROFILE} | base64 --decode > "$PROFILE_PATH"
-          echo "Saved provisioning profile $PROFILE_PATH"      
-      - name: Set up signing certificate
-        script: |
-          echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
-          keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD    
-      - name: Set up code signing settings on Xcode project
-        script: xcode-project use-profiles
+      - *init_keychain
+      - *setup_provosioning_profiles   
+      - *setup_certificate   
+      - *use_profiles
       - name: Build .ipa
         script: xcode-project build-ipa --workspace "$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
     triggering:
@@ -86,8 +83,7 @@ workflows:
   ios-project-build-and-sign:
     name: Build and Sign App
     environment:
-      xcode: latest
-      cocoapods: default
+      << : *env_versions
       groups:
         # adds following vars to env:
         # CM_CERTIFICATE
@@ -97,24 +93,12 @@ workflows:
        # CM_VERSION
         - app_config
       vars:
-        XCODE_WORKSPACE: "CanYouReallySearchGitHub.xcworkspace"
-        XCODE_SCHEME: "App_Debug"
+        << : *xcode_project_names
     scripts:
-      - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
-        script: keychain initialize
-      - name: Set up Provisioning profiles from environment variables
-        script: |
-          PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
-          mkdir -p "$PROFILES_HOME"
-          PROFILE_PATH="$(mktemp "$PROFILES_HOME"/$(uuidgen).mobileprovision)"
-          echo ${CM_PROVISIONING_PROFILE} | base64 --decode > "$PROFILE_PATH"
-          echo "Saved provisioning profile $PROFILE_PATH"      
-      - name: Set up signing certificate
-        script: |
-          echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
-          keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD    
-      - name: Set up code signing settings on Xcode project
-        script: xcode-project use-profiles
+      - *init_keychain
+      - *setup_provosioning_profiles   
+      - *setup_certificate   
+      - *use_profiles
       - name: Build .ipa
         script: |
           xcode-project build-ipa --workspace "$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
