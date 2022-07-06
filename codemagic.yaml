@@ -90,8 +90,6 @@ workflows:
         # CM_CERTIFICATE_PASSWORD
         # CM_PROVISIONING_PROFILE
         - certificate_credentials
-       # CM_VERSION
-        - app_config
       vars:
         << : *xcode_project_names
     scripts:
