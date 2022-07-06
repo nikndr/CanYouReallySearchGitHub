@@ -68,8 +68,8 @@ workflows:
           include: false
       cancel_previous_builds: true
     artifacts:
-      - build/ios/ipa/*.ipa
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+      - build/ios/ipa/CanYouReallySearchGitHub.ipa
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/dSYM
     publishing:
       firebase:
         firebase_token: $FIREBASE_TOKEN
